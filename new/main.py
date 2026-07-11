@@ -1,8 +1,8 @@
 from colorama import Fore, init
 
-import whereisnickname
-import nicknamebio as nicknamebio
-import findsimilar
+from findncknames.whereisnickname import checknickname
+from src.services.victim_info.biography import initialize
+from src.services.victim_info.where_is_signed import where_is_signed
 
 init()
 
@@ -14,14 +14,11 @@ def main():
             case "quit" | "exit" | "x":
                 break
 
-            case "whereisnickname":
-                whereisnickname.checknickname()
+            case "biography":
+                initialize.initialize()
 
-            case "nicknamebio":
-                nicknamebio.nicknamebio()
-
-            case "findsimilar":
-                findsimilar.findsimilar()
+            case "issigned":
+                where_is_signed.checknickname()
 
             case _:
                 print(Fore.YELLOW + "Unknown command")
