@@ -1,6 +1,5 @@
 from colorama import Fore, init
 
-from findncknames.whereisnickname import checknickname
 from src.services.victim_info.biography import initialize
 from src.services.victim_info.where_is_signed import where_is_signed
 
@@ -17,7 +16,7 @@ def main():
             case "biography":
                 initialize.initialize()
 
-            case "issigned":
+            case "check":
                 where_is_signed.checknickname()
 
             case _:
