@@ -2,6 +2,7 @@ from .AbstractBiography import AbstractBiography
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import asyncio
 
 class InstagramAbstractBiography(AbstractBiography):
     def __init__(self, driver, username):
@@ -10,7 +11,7 @@ class InstagramAbstractBiography(AbstractBiography):
         self.driver = driver
         self.username = username
 
-    def get_biography(self, username: str) -> str:
+    async def get_biography(self, username: str) -> str:
         print(f"Checking Instagram for: {self.username}")
         self.driver.get(f"https://www.instagram.com/{self.username}/")
         try:
@@ -20,3 +21,5 @@ class InstagramAbstractBiography(AbstractBiography):
             print("[+] Bio found:", bio)
         except:
             print("[-] Bio not found")
+
+        await asyncio.sleep(10)

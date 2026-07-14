@@ -1,5 +1,5 @@
 from .AbstractBiography import AbstractBiography
-import time
+import asyncio
 
 class FacebookAbstractBiography(AbstractBiography):
     def __init__(self, driver, username):
@@ -8,7 +8,7 @@ class FacebookAbstractBiography(AbstractBiography):
         self.username = username
 
 
-    def get_biography(self, username:str) -> str:
+    async def get_biography(self, username:str) -> str:
         print(f"Checking Facebook for: {self.username}")
         self.driver.get(f"https://www.facebook.com/{self.username}")
-        time.sleep(30)  # Даємо час завантажитись
+        await asyncio.sleep(10)

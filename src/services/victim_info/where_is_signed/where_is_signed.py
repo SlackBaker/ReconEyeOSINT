@@ -1,4 +1,5 @@
 import httpx
+import asyncio
 
 
 sites = {
@@ -17,7 +18,7 @@ sites = {
     "https://www.xbox.com/"
 }
 
-def checknickname():
+async def checknickname():
     nickname = input("Write your nickname: ")
     found = []
     header = {"User-Agent": "Mozilla/5.0"}

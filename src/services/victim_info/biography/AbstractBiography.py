@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import asyncio
 
 
 class AbstractBiography(ABC):
@@ -8,5 +9,5 @@ class AbstractBiography(ABC):
         AbstractBiography.instances.append(self)
 
     @abstractmethod
-    def get_biography(self, username: str) -> str:
+    async def get_biography(self, username: str) -> str:
         raise NotImplementedError("get_biography method is not implemented")

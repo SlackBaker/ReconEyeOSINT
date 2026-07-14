@@ -3,9 +3,10 @@ from src.services.victim_info.biography.instagram_biography import InstagramAbst
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+import asyncio
 
 
-def initialize():
+async def initialize():
     options = Options()
 
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
@@ -26,8 +27,8 @@ def initialize():
     fb = FacebookAbstractBiography(driver, username)
     insta = InstagramAbstractBiography(driver, username)
 
-    insta.get_biography(username)
-    fb.get_biography(username)
+    await insta.get_biography(username)
+    await fb.get_biography(username)
 
     input("press enter to exit...")
     driver.quit()
